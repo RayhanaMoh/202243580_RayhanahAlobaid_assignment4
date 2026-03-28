@@ -21,7 +21,7 @@
                 <a href="#about" id="aboutLink">About Me</a>
                 <a href="#skills" id="skillsLink">Skills</a>
                 <a href="#projects" id="projectsLink">Projects</a>
-                <a href="#letsTalk" class="letsTalk-btn" id="contactBtn">Let's Talk</a>
+                <a href="#contact" class="letsTalk-btn" id="contactBtn">Let's Talk</a>
             </nav>
         </div>
     </header>
@@ -39,7 +39,7 @@
             <!-- Action buttons -->
             <div class="buttons">
                 <a href="#github" class="btn-1" id="githubBtn">GitHub</a>
-                <a href="#CV" class="btn-2" id="cv">Download CV</a>
+                <a href="#CV" class="btn-2" id="cvBtn">Download CV</a>
             </div>
 
         </div>
@@ -53,7 +53,7 @@
     <div class="container">
         <!-- Left side: profile img -->
         <div class="col">
-            <img class="profileImg"  src="assest/images/rr.jpg" alt="Rayhana's Image">
+            <img class="profileImg" src="assets/images/rr.jpg" alt="Rayhana's Image">
         </div>
 
         <!-- right side: about-me text -->
@@ -137,27 +137,38 @@
 <section class="project" id="projects">
     <div class="container">
         <h2 class="project-title">My <span>Projects</span></h2> <!-- Section title -->
-        <div class="projects-grid">  <!-- Projects grid container -->
+        <div class="project-grid">  <!-- Projects grid container -->
 
                 <!-- Project 1 -->
-                <div class="project-card" id="project1">
+                <div class="project-card collapsible-card" id="project1">
                     <!-- Project text content -->
                     <div class="project-content">
                         <h3>Founder & Owner | Masarra World Store</h3>
                         <p>
-                            Established and managed an e-commerce platform specializing in premium children's products.                        </p>
+                            Established and managed an e-commerce platform specializing in premium children's products.
+                        </p>
+
+                        <!-- Toggle button to show/hide extra content -->
+                        <div class="extra-content">
+                            <p>
+                                I handled branding, product presentation, customer experience, and overall store management.
+                                This project helped me build skills, specifically in business and design.
+                            </p>
+                        </div>
+                        <span class="toggle-text">...Show more</span>
+
                     </div>
 
                     <!-- Project image -->
-                    <div class="project-img">
-                        <img src="assest/images/Massara.png" alt="Project 1 Image">
+                    <div class="project-image">
+                        <img src="assets/images/Massara.png" alt="Project 1 Image">
                     </div>
                 </div>
 
             <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="assest/images/Arduino_Uno.jpg" alt="Project 2 Image">
+            <div class="project-card collapsible-card">
+                <div class="project-image">
+                    <img src="assets/images/Arduino_Uno.jpg" alt="Project 2 Image">
                 </div>
 
                 <div class="project-content">
@@ -165,11 +176,22 @@
                     <p>
                         - Led the programming department in designing and developing a chemically-powered vehicle.
                         - Engineered the control system using Arduino to ensure precise timing and integration between chemical reactions and mechanical movement.                </p>
+
+                    <!-- Toggle button to show/hide extra content -->
+                    <div class="extra-content">
+                        <p>
+                            I engineered the control system using Arduino to ensure precise timing and integration
+                            between chemical reactions and mechanical movement.
+                        </p>
+                    </div>
+
+                    <span class="toggle-text">...Show more</span>
+
                 </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card">
+            <div class="project-card collapsible-card">
                 <div class="project-content">
                     <h3>Solution Hackathon - Designer</h3>
                     <p>
@@ -177,10 +199,21 @@
                         Contributed to create appealing designs for
                         the hackathon to be used in the marketing and the competition's material.
                     </p>
+
+                    <!-- Toggle button to show/hide extra content -->
+                    <div class="extra-content">
+                        <p>
+                            I contributed to creating appealing designs for marketing materials and competition assets,
+                            improving the visual identity of the hackathon.
+                        </p>
+                    </div>
+
+                    <span class="toggle-text">...Show more</span>
+
                 </div>
 
-                <div class="project-img">
-                    <img src="assest/images/Sol-hackathon.jpg" alt="Project 3 Image">
+                <div class="project-image">
+                    <img src="assets/images/Sol-hackathon.jpg" alt="Project 3 Image">
                 </div>
             </div>
 
@@ -198,7 +231,7 @@
 
         <!-- Contact form card -->
         <div class="contact-card">
-            <form action="#">
+            <form id="contactForm" novalidate action="#">
                 <!-- Name input -->
                 <div class="input-group">
                     <label for="name">Name</label>
@@ -231,12 +264,14 @@
 
                 <!-- Submit button -->
                 <button type="submit" class="submit-btn">Send Message</button>
+
+                <p id="formMessage" class="form-message"></p> <!-- Placeholder for form submission message -->
+
             </form>
         </div>
     </div>
 
 </section>
-</body>
 
 <!-- Footer Section -->
 <footer class="footer">
@@ -247,4 +282,5 @@
     </div>
 </footer>
 
+</body>
 </html>
