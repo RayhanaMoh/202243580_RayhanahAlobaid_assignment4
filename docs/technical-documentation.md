@@ -227,6 +227,8 @@ localStorage.getItem('visitorName');
 
 ---
 
+## Test Performance 
+![Screenshot 1447-11-01 at 3.22.46 PM.png](../../../../Screenshot%201447-11-01%20at%203.22.46%E2%80%AFPM.png)
 ## Notes
 
 * Fully client-side (no backend)
