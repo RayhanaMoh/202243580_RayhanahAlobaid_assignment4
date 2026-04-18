@@ -228,9 +228,9 @@ localStorage.getItem('visitorName');
 ---
 
 ## Test Performance 
-Test was done using Lighthouse:
-Google Chrome > right click > inspect > Lighthouse > enable performance > generate report
-output: Performance is 92
+* Test was done using Lighthouse:
+* Google Chrome > right click > inspect > Lighthouse > enable performance > generate report
+* output: Performance is 92
 
 ---
 
