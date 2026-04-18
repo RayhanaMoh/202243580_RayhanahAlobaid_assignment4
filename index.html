@@ -2,216 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rayhanah Alobaid — Software Engineer Student at KFUPM. Portfolio showcasing projects, skills, and GitHub repositories.">
     <title>Rayhanah's Portfolio</title>
-    <!-- Link to external CSS file for styling -->
+    <link rel="preconnect" href="https://api.github.com">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Link to external JavaScript file -->
     <script defer src="js/script.js"></script>
 </head>
 
 <body>
 <!--             1              -->
 <!--  Header & Navigation  -->
-    <header>
-        <div class= "container header-flex">
-            <div class="nameLeft" id="nameLeft">Rayhanah Alobaid</div> <!-- Website name -->
-            <nav class="nav"> <!-- Navigation menu -->
-                <p id="greeting"></p>
-                <!-- Navigation links to page sections -->
-                <a href="#about" id="aboutLink">About Me</a>
-                <a href="#skills" id="skillsLink">Skills</a>
-                <a href="#projects" id="projectsLink">Projects</a>
-                <a href="#contact" class="letsTalk-btn" id="contactBtn">Let's Talk</a>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="container header-flex">
+        <div class="nameLeft" id="nameLeft">Rayhanah Alobaid</div>
+        <nav class="nav">
+            <p id="greeting"></p>
+            <a href="#about" id="aboutLink">About Me</a>
+            <a href="#skills" id="skillsLink">Skills</a>
+            <a href="#github-repos" id="reposLink">Repos</a>
+            <a href="#projects" id="projectsLink">Projects</a>
+            <a href="#contact" class="letsTalk-btn" id="contactBtn">Let's Talk</a>
+        </nav>
+    </div>
+</header>
 
 <!--  Main content section  -->
-    <section class="middle-content" id="content">
-        <div class="container">
-
-            <!-- Main introduction text -->
-                <div class="content">
-                    <h1> Rayhanah Alobaid</h1>
-                    <p class="description">Software Engineer Student @kfupm</p>
-                </div>
-
-            <!-- Action buttons -->
-            <div class="buttons">
-                <a href="#github" class="btn-1" id="githubBtn">GitHub</a>
-                <a href="#CV" class="btn-2" id="cvBtn">Download CV</a>
-            </div>
-
-        </div>
-    </section>
-
-
-<!--             2           -->
-<!--  About me section -->
-
-<section class="about-me" id="about">
+<section class="middle-content" id="content">
     <div class="container">
-        <!-- Left side: profile img -->
-        <div class="col">
-            <img class="profileImg" src="assets/images/rr.jpg" alt="Rayhana's Image">
+
+        <div class="content">
+            <h1>Rayhanah Alobaid</h1>
+            <p class="description">Software Engineer Student @kfupm</p>
         </div>
 
-        <!-- right side: about-me text -->
-        <div class="col">
-            <h2><span>About Me</span></h2>
-            <p> <!-- short intro -->
-                <em>I'm Rayhanah Alobaid, a software engineer with a passion for creating innovative solutions.
-                I have experience in web development, mobile app development, and software design.
-                I enjoy working on challenging projects and collaborating with teams to bring ideas to life.</em> </p>
+        <div class="buttons">
+            <a href="#github" class="btn-1" id="githubBtn">GitHub</a>
+            <a href="#CV" class="btn-2" id="cvBtn">Download CV</a>
+        </div>
+
+        <!-- Name Prompt Modal -->
+        <div class="name-modal-overlay" id="nameModalOverlay">
+            <div class="name-modal">
+                <h3>Welcome to my portfolio! 👋</h3>
+                <p>What's your name?</p>
+                <div class="name-modal-input-wrapper">
+                    <input type="text" id="visitorNameInput" placeholder="Enter your name" maxlength="30" />
+                </div>
+                <button class="name-modal-btn" id="saveVisitorName">Let's Go →</button>
+            </div>
+        </div>
+
+        <!-- Visitor Mode Selector -->
+        <div class="visitor-selector" id="visitorSelector">
+            <p class="visitor-label">Who are you?</p>
+            <div class="visitor-btns">
+                <button class="visitor-btn" data-mode="recruiter">Recruiter</button>
+                <button class="visitor-btn" data-mode="beginner">Beginner</button>
+                <button class="visitor-btn" data-mode="developer">Developer</button>
+            </div>
+        </div>
+
+        <!-- Personalized Banner -->
+        <div class="visitor-banner" id="visitorBanner" style="display:none;">
+            <span id="visitorBannerText"></span>
+            <button class="banner-close" id="bannerClose">✕</button>
         </div>
 
     </div>
 </section>
 
-<!--             3           -->
-<!--  Skills section -->
-
-<section class="skills" id="skills">
-        <h2 class="skills-title">My <span>Skills</span></h2> <!-- Section title -->
-        <div class="skills-grid">   <!-- Grid container for skill cards -->
-
-            <!-- Skill 1: Python -->
-            <div class="skill-card">
-
-                <div class="skill-header">
-                    <h3>Python</h3>
-                </div>
-
-                <!-- Progress bar -->
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 90%"></div>
-                </div>
-                <p class="skill-percentage">90%</p> <!-- Percentage text -->
-            </div>
-
-            <!-- Skill 2: Java -->
-            <div class="skill-card">
-
-                <div class="skill-header">
-                    <h3>Java</h3>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 75%"></div>
-                </div>
-                <p class="skill-percentage">75%</p>
-            </div>
-
-            <!-- Skill 3: UI/UX -->
-            <div class="skill-card">
-
-                <div class="skill-header">
-                    <h3>UI/UX</h3>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%"></div>
-                </div>
-                <p class="skill-percentage">60%</p>
-            </div>
-
-            <!-- Skill 4: Web dev -->
-            <div class="skill-card">
-
-                <div class="skill-header">
-                    <h3>Web Development</h3>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%"></div>
-                </div>
-                <p class="skill-percentage">55%</p>
-            </div>
+<!--             2           -->
+<!--  About me section -->
+<section class="about-me" id="about">
+    <div class="container">
+        <div class="col">
+            <img class="profileImg" src="assets/images/rr.jpg" alt="Rayhana's Image">
         </div>
+        <div class="col">
+            <h2><span>About Me</span></h2>
+            <p>
+                <em>I'm Rayhanah Alobaid, a software engineer with a passion for creating innovative solutions.
+                    I have experience in web development, mobile app development, and software design.
+                    I enjoy working on challenging projects and collaborating with teams to bring ideas to life.</em>
+            </p>
+        </div>
+    </div>
 </section>
 
-
 <!--             3           -->
-<!--  Projects section -->
+<!--  Skills section -->
+<section class="skills" id="skills">
+    <h2 class="skills-title">My <span>Skills</span></h2>
+    <div class="skills-grid">
 
+        <!-- Skill 1: Python -->
+        <div class="skill-card" data-skill="developer beginner">
+            <div class="skill-header">
+                <h3>Python</h3>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+            </div>
+            <p class="skill-percentage">90%</p>
+        </div>
+
+        <!-- Skill 2: Java -->
+        <div class="skill-card" data-skill="developer">
+            <div class="skill-header">
+                <h3>Java</h3>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+            </div>
+            <p class="skill-percentage">75%</p>
+        </div>
+
+        <!-- Skill 3: UI/UX -->
+        <div class="skill-card" data-skill="recruiter beginner">
+            <div class="skill-header">
+                <h3>UI/UX</h3>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%"></div>
+            </div>
+            <p class="skill-percentage">60%</p>
+        </div>
+
+        <!-- Skill 4: Web Development -->
+        <div class="skill-card" data-skill="recruiter developer beginner">
+            <div class="skill-header">
+                <h3>Web Development</h3>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 55%"></div>
+            </div>
+            <p class="skill-percentage">55%</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GitHub Repositories Section -->
+<section class="github-repos" id="github-repos">
+    <div class="container">
+        <h2 class="repos-title">My <span>GitHub Repos</span></h2>
+        <p class="repos-subtitle">Live from GitHub · Updated automatically</p>
+        <div class="repos-grid" id="reposGrid"></div>
+        <p id="reposError" class="repos-error" style="display:none;">
+            ⚠️ Could not load repositories. Please try again later.
+        </p>
+    </div>
+</section>
+
+<!--  Projects section -->
 <section class="project" id="projects">
     <div class="container">
-        <h2 class="project-title">My <span>Projects</span></h2> <!-- Section title -->
-        <div class="project-grid">  <!-- Projects grid container -->
+        <h2 class="project-title">My <span>Projects</span></h2>
+        <div class="project-grid">
 
-                <!-- Project 1 -->
-                <div class="project-card collapsible-card" id="project1">
-                    <!-- Project text content -->
-                    <div class="project-content">
-                        <h3>Founder & Owner | Masarra World Store</h3>
-                        <p>
-                            Established and managed an e-commerce platform specializing in premium children's products.
-                        </p>
-
-                        <!-- Toggle button to show/hide extra content -->
-                        <div class="extra-content">
-                            <p>
-                                I handled branding, product presentation, customer experience, and overall store management.
-                                This project helped me build skills, specifically in business and design.
-                            </p>
-                        </div>
-                        <span class="toggle-text">...Show more</span>
-
+            <!-- Project 1 -->
+            <div class="project-card collapsible-card" id="project1" data-project="recruiter beginner">
+                <div class="project-content">
+                    <h3>Founder & Owner | Masarra World Store</h3>
+                    <p>Established and managed an e-commerce platform specializing in premium children's products.</p>
+                    <div class="extra-content">
+                        <p>I handled branding, product presentation, customer experience, and overall store management.
+                            This project helped me build skills, specifically in business and design.</p>
                     </div>
-
-                    <!-- Project image -->
-                    <div class="project-image">
-                        <img src="assets/images/Massara.png" alt="Project 1 Image">
-                    </div>
+                    <span class="toggle-text">...Show more</span>
                 </div>
+                <div class="project-image">
+                    <img src="assets/images/Massara.png" alt="Project 1 Image">
+                </div>
+            </div>
 
             <!-- Project 2 -->
-            <div class="project-card collapsible-card">
+            <div class="project-card collapsible-card" data-project="developer">
                 <div class="project-image">
                     <img src="assets/images/Arduino_Uno.jpg" alt="Project 2 Image">
                 </div>
-
                 <div class="project-content">
                     <h3>Programming Team Lead | Chem-E-Car Competition 2024</h3>
-                    <p>
-                        - Led the programming department in designing and developing a chemically-powered vehicle.
-                        - Engineered the control system using Arduino to ensure precise timing and integration between chemical reactions and mechanical movement.                </p>
-
-                    <!-- Toggle button to show/hide extra content -->
+                    <p>- Led the programming department in designing and developing a chemically-powered vehicle.
+                        - Engineered the control system using Arduino to ensure precise timing and integration between chemical reactions and mechanical movement.</p>
                     <div class="extra-content">
-                        <p>
-                            I engineered the control system using Arduino to ensure precise timing and integration
-                            between chemical reactions and mechanical movement.
-                        </p>
+                        <p>I engineered the control system using Arduino to ensure precise timing and integration
+                            between chemical reactions and mechanical movement.</p>
                     </div>
-
                     <span class="toggle-text">...Show more</span>
-
                 </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card collapsible-card">
+            <div class="project-card collapsible-card" data-project="recruiter developer">
                 <div class="project-content">
                     <h3>Solution Hackathon - Designer</h3>
-                    <p>
-                        Lead the FCC/Solution Hackathon design team during 2024-2025.
-                        Contributed to create appealing designs for
-                        the hackathon to be used in the marketing and the competition's material.
-                    </p>
-
-                    <!-- Toggle button to show/hide extra content -->
+                    <p>Lead the FCC/Solution Hackathon design team during 2024-2025.
+                        Contributed to create appealing designs for the hackathon to be used in the marketing and the competition's material.</p>
                     <div class="extra-content">
-                        <p>
-                            I contributed to creating appealing designs for marketing materials and competition assets,
-                            improving the visual identity of the hackathon.
-                        </p>
+                        <p>I contributed to creating appealing designs for marketing materials and competition assets,
+                            improving the visual identity of the hackathon.</p>
                     </div>
-
                     <span class="toggle-text">...Show more</span>
-
                 </div>
-
                 <div class="project-image">
                     <img src="assets/images/Sol-hackathon.jpg" alt="Project 3 Image">
                 </div>
@@ -221,63 +215,50 @@
     </div>
 </section>
 
-
 <!--             4           -->
-<!--  Contact me  section-->
+<!--  Contact me section -->
 <section class="contact" id="contact">
     <div class="container">
-        <h2 class="contact-title">Let's <span>Connect</span></h2> <!-- Section title -->
+        <h2 class="contact-title">Let's <span>Connect</span></h2>
         <p class="contact-subtitle">Feel free to reach out!</p>
-
-        <!-- Contact form card -->
         <div class="contact-card">
             <form id="contactForm" novalidate action="#">
-                <!-- Name input -->
                 <div class="input-group">
                     <label for="name">Name</label>
                     <div class="input-field">
                         <div class="input-wrapper">
-                            <input type="text" id="name" placeholder="Your name" required> <!-- user input field / mandatory -->
+                            <input type="text" id="name" placeholder="Your name" required>
                         </div>
                     </div>
                 </div>
-
-                <!-- Email input -->
                 <div class="input-group">
                     <label for="email">Email</label>
                     <div class="input-field">
                         <div class="input-wrapper">
-                            <input type="email" id="email" placeholder="Your email" required> <!-- user input field / mandatory -->
+                            <input type="email" id="email" placeholder="Your email" required>
                         </div>
                     </div>
                 </div>
-
-                <!-- Message textarea -->
                 <div class="input-group">
                     <label for="message">Message</label>
                     <div class="input-field">
                         <div class="input-wrapper">
-                            <textarea id="message" placeholder="Your message" required></textarea> <!-- user input field / mandatory -->
+                            <textarea id="message" placeholder="Your message" required></textarea>
                         </div>
                     </div>
                 </div>
-
-                <!-- Submit button -->
                 <button type="submit" class="submit-btn">Send Message</button>
-
-                <p id="formMessage" class="form-message"></p> <!-- Placeholder for form submission message -->
-
+                <p id="formMessage" class="form-message"></p>
             </form>
         </div>
     </div>
-
 </section>
 
-<!-- Footer Section -->
+<!-- Footer -->
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <p>© 2026 --- Built By <span>rayhaan1425@gmail.com</span></p> <!-- Copyright text -->
+            <p>© 2026 --- Built By <span>rayhaan1425@gmail.com</span></p>
         </div>
     </div>
 </footer>
