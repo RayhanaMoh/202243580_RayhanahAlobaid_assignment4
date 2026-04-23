@@ -1,4 +1,4 @@
-# Assignment 3 - Personal Portfolio
+# Assignment 4 - Personal Portfolio
 A responsive, interactive personal portfolio built with HTML, CSS, and JavaScript. The site presents a dynamic overview of my background, projects, skills, and contact information — with live GitHub integration and personalized visitor experience.
 
 ## Project Description
