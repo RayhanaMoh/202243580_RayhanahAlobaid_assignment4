@@ -48,6 +48,9 @@ To run the project locally, follow these steps:
 1. Clone the repository.
 2. Open any code editor (e.g., WebStorm, VS Code) and navigate to the project directory.
 3. Right click on `index.html` and select "Open in Browser" to view the portfolio.
+
+#### OR
+Open this link directly in your browser: [Live Demo](https://ornate-cucurucho-bf32d5.netlify.app)
 > **Note:** The GitHub Repos section requires an internet connection to fetch live data from the GitHub API.
 
 ## How to use
