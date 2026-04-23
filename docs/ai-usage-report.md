@@ -30,7 +30,16 @@ During this project, I used AI for the following purposes:
 - **Confusion:** AI would suggest different code that conflict with my current code, requiring manual intervention to ensure consistency. 
 - **Scaling:** AI generated clamp() values are unrealistic and needs re-scaling many times to get the right size.
 
-## 4- Responsive Use & Modificatoins:
+
+# 4- Learning Outcomes
+Through using AI tools in this project, I gained several skills and improvements in my workflow:
+- **Improved JavaScript understanding:** I better understood DOM manipulation, event handling, and working with APIs.
+- **API integration:** I gained experience using fetch with async/await to work with external data (GitHub API).
+- **Debugging skills:** I improved my ability to identify and fix errors instead of only copying solutions.
+- **Code optimization:** I learned how to reduce repetition and write cleaner, more reusable code.
+- **Workflow efficiency:** AI helped speed up development, but also taught me the importance of reviewing and testing all generated code.
+
+## 5- Responsive Use & Modificatoins:
 Regardless of the given code/suggestion/modification by AI, I managed to do the following:
 - **Manual Review:** Every line provided by AI was reviewed and tested within Webstorm's environment before being integrated in the web.
 - **Customization:** I modified generic AI code to match my specific needs and preferences.

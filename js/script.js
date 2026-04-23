@@ -6,25 +6,31 @@ function updateGreeting() {
     if (!greetingElement) return;
 
     const now = new Date();
+
+    // Get current time
     const hour = now.getHours();
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
     const timeString = `${hour.toString().padStart(2, '0')}:${minutes}:${seconds}`;
 
+    // Decide greeting based on time
     let message = '';
     if (hour >= 5 && hour < 12)       message = 'Good Morning';
     else if (hour >= 12 && hour < 18)  message = 'Good Afternoon';
     else if (hour >= 18 && hour < 22)  message = 'Good Evening';
     else                               message = 'Welcome';
 
+    // Get saved visitor name (if exists)
     const savedName = localStorage.getItem('visitorName');
     const nameDisplay = savedName ? `, ${savedName}` : '';
 
+    // Render greeting + time + optional reset button
     greetingElement.innerHTML = `
         ${message}${nameDisplay} <span class="time-display">${timeString}</span>
         ${savedName ? '<button class="reset-name" id="resetName">Not you?</button>' : ''}
     `;
 
+    // Reset name handler
     const resetBtn = document.getElementById('resetName');
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
@@ -48,6 +54,90 @@ function setupScroll(linkId, sectionId) {
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
         link.style.cursor = 'pointer';
+    }
+}
+
+let allRepos = [];
+let currentFilter = "all";
+
+// *************   3   ****************
+// GitHub REPOS + Filtering
+// ************************************
+function renderRepos(repos) {
+    const grid = document.getElementById('reposGrid');
+    if (!grid) return;
+
+    if (!repos.length) {
+        grid.innerHTML = '<p class="repos-loading">No repositories found.</p>';
+        return;
+    }
+
+    grid.innerHTML = repos.map(repo => {
+        const desc = repo.description || 'No description provided.';
+        const lang = repo.language || 'Other';
+
+        const updated = new Date(repo.updated_at).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric'
+        });
+
+        return `
+        <a class="repo-card" href="${repo.html_url}" target="_blank">
+            <h3>📁 ${repo.name}</h3>
+            <p>${desc}</p>
+            <div class="repo-meta">
+                <span class="repo-lang">${lang}</span>
+            </div>
+            <p class="repo-updated">Updated: ${updated}</p>
+        </a>`;
+    }).join('');
+}
+
+
+// Filter function
+function filterRepos(lang) {
+    currentFilter = lang;
+
+    const filtered = lang === "all"
+        ? allRepos
+        : allRepos.filter(repo => repo.language === lang);
+
+    renderRepos(filtered);
+}
+
+
+// Load GitHub repos
+async function loadGitHubRepos() {
+    const grid = document.getElementById('reposGrid');
+    const errorEl = document.getElementById('reposError');
+    if (!grid) return;
+
+    grid.innerHTML = '<p class="repos-loading">Loading repositories…</p>';
+
+    try {
+        const res = await fetch('https://api.github.com/users/RayhanaMoh/repos?sort=updated&per_page=6');
+        if (!res.ok) throw new Error("GitHub API error");
+
+        allRepos = await res.json();
+
+        // Save repos globally for filtering
+        renderRepos(allRepos);
+
+        // Setup filter buttons AFTER data loads
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn')
+                    .forEach(b => b.classList.remove('active'));
+
+                btn.classList.add('active');
+
+                filterRepos(btn.dataset.filter);
+            });
+        });
+
+    } catch (err) {
+        console.error(err);
+        grid.innerHTML = '';
+        if (errorEl) errorEl.style.display = 'block';
     }
 }
 
@@ -81,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // *************   3   ****************
+    // *************   4   ****************
     // Expand / collapse project cards
     // ************************************
     document.querySelectorAll('.collapsible-card').forEach(card => {
@@ -103,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         masarraCard.style.cursor = 'pointer';
     }
 
-    // *************   4   ****************
+    // *************   5   ****************
     // Contact form validation
     // ************************************
     const contactForm = document.getElementById('contactForm');
@@ -144,48 +234,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // *************   5   ****************
-    // GitHub Repos API
-    // ************************************
-    async function loadGitHubRepos() {
-        const grid    = document.getElementById('reposGrid');
-        const errorEl = document.getElementById('reposError');
-        if (!grid) return;
-
-        grid.innerHTML = '<p class="repos-loading">Loading repositories…</p>';
-
-        try {
-            const res = await fetch('https://api.github.com/users/RayhanaMoh/repos?sort=updated&per_page=6');
-            if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-
-            const repos = await res.json();
-
-            if (!repos.length) {
-                grid.innerHTML = '<p class="repos-loading">No public repositories found.</p>';
-                return;
-            }
-
-            grid.innerHTML = repos.map(repo => {
-                const desc    = repo.description || 'No description provided.';
-                const lang    = repo.language ? `<span class="repo-lang">${repo.language}</span>` : '';
-                const updated = new Date(repo.updated_at).toLocaleDateString('en-US', {
-                    year: 'numeric', month: 'short', day: 'numeric'
-                });
-                return `
-                <a class="repo-card" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
-                    <h3>📁 ${repo.name}</h3>
-                    <p>${desc}</p>
-                    <div class="repo-meta">${lang}</div>
-                    <p class="repo-updated">Updated: ${updated}</p>
-                </a>`;
-            }).join('');
-
-        } catch (err) {
-            console.error(err);
-            grid.innerHTML = '';
-            if (errorEl) errorEl.style.display = 'block';
-        }
-    }
 
     // *************   6   ****************
     // Visitor Mode Selector
